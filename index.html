@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,35 +11,38 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: #f4f4f9;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
     .container {
       max-width: 800px;
       margin: 0 auto;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.1);
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .output {
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.8);
+      opacity: 0.75;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
       margin: 20px 0 10px;
+      color: #000000;
     }
 
     p {
       margin: 10px 0;
+      line-height: 1.6;
     }
 
     pre {
@@ -119,7 +121,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="container">
     <div class="output" id="htmlOutput"></div>
@@ -136,7 +137,7 @@
           const parser = new DOMParser();
           const doc = parser.parseFromString(htmlOutput, 'text/html');
           doc.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
-            const id = heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            const id = heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').replace(/&/g, '-');
             heading.id = id;
           });
           document.getElementById('htmlOutput').innerHTML = doc.body.innerHTML;
@@ -166,10 +167,9 @@
     }
 
     // Fetch the Markdown content when the DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       fetchMarkdown('jsConcepts.md'); // Replace with the path to your Markdown file
     });
   </script>
 </body>
-
 </html>
