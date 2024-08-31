@@ -331,7 +331,7 @@ myPromise.then((message) => {
 **Explanation:**
 - A `Promise` is created and resolved after 1 second. The `then` method is used to handle the resolved value.
 
-#### Async/Await
+#### Async Await
 `async` and `await` are syntactic sugar built on top of promises, making asynchronous code easier to write and read.
 
 **Example:**
