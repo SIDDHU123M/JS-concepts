@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markdown to HTML</title>
+  <title>JavaScript Concepts</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Dank+Mono&display=swap" rel="stylesheet">
   <style>
@@ -86,8 +86,8 @@
   <div class="container">
     <div class="output" id="htmlOutput"></div>
   </div>
-  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
   <script>
     // Function to fetch Markdown content from a file
     function fetchMarkdown(file) {
@@ -95,7 +95,13 @@
         .then(response => response.text())
         .then(markdown => {
           const htmlOutput = marked.parse(markdown); // Use marked.parse to convert markdown to HTML
-          document.getElementById('htmlOutput').innerHTML = htmlOutput;
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlOutput, 'text/html');
+          doc.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading) => {
+            const id = heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            heading.id = id;
+          });
+          document.getElementById('htmlOutput').innerHTML = doc.body.innerHTML;
           document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);
             addCopyButton(block);
