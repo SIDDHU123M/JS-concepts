@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
       padding: 20px;
       background-color: #f4f4f9;
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -20,18 +22,27 @@
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .output {
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 4px;
       background: #fff;
     }
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin: 20px 0 10px;
     }
+
     p {
       margin: 10px 0;
     }
+
     pre {
       background: #f4f4f9;
       padding: 10px;
@@ -44,6 +55,7 @@
       color: #333;
       position: relative;
     }
+
     code {
       background: #f4f4f9;
       padding: 2px 4px;
@@ -54,6 +66,7 @@
       font-style: italic;
       color: #333;
     }
+
     .copy-button {
       position: absolute;
       top: 10px;
@@ -66,21 +79,26 @@
       cursor: pointer;
       font-size: 12px;
     }
+
     .copy-button:hover {
       background: #0056b3;
     }
+
     @media (max-width: 600px) {
       body {
         padding: 10px;
       }
+
       .container {
         padding: 10px;
       }
+
       pre {
         font-size: 12px;
       }
     }
-        ul {
+
+    ul {
       list-style-type: disc;
       padding-left: 20px;
     }
@@ -101,6 +119,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="output" id="htmlOutput"></div>
@@ -147,9 +166,10 @@
     }
 
     // Fetch the Markdown content when the DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       fetchMarkdown('jsConcepts.md'); // Replace with the path to your Markdown file
     });
   </script>
 </body>
+
 </html>
