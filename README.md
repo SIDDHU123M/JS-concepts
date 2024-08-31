@@ -10,7 +10,7 @@ The `jsConcepts.md` file in this repository provides detailed explanations and e
 
 ### JavaScript Concepts
 
-- [Setter & Getter](#setter--getter)
+- [Setter & Getter](#setter-and-getter)
 - [Destructuring](#destructuring)
 - [Rest Operator](#rest-operator)
 - [Spread Operator](#spread-operator)
@@ -46,7 +46,7 @@ The `jsConcepts.md` file in this repository provides detailed explanations and e
 - [Prototypal Inheritance](#prototypal-inheritance)
 - [Debouncing and Throttling](#debouncing-and-throttling)
 
-#### Setter & Getter
+#### Setter and Getter
 Setters and getters are special methods that provide a way to access and update the properties of an object.
 
 **Example:**
