@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown to HTML</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dank+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .output {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin: 20px 0 10px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    pre {
+      background: #f4f4f9;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: 'Dank Mono', monospace;
+      font-weight: bold;
+      font-size: 14px;
+      font-style: italic;
+      color: #333;
+      position: relative;
+    }
+    code {
+      background: #f4f4f9;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: 'Dank Mono', monospace;
+      font-weight: bold;
+      font-size: 14px;
+      font-style: italic;
+      color: #333;
+    }
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .copy-button:hover {
+      background: #0056b3;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 10px;
+      }
+      pre {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="output" id="htmlOutput"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+  <script>
+    // Function to fetch Markdown content from a file
+    function fetchMarkdown(file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(markdown => {
+          const htmlOutput = marked.parse(markdown); // Use marked.parse to convert markdown to HTML
+          document.getElementById('htmlOutput').innerHTML = htmlOutput;
+          document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+            addCopyButton(block);
+          });
+        })
+        .catch(error => console.error('Error fetching Markdown file:', error));
+    }
+
+    // Function to add a copy button to each code block
+    function addCopyButton(block) {
+      const button = document.createElement('button');
+      button.className = 'copy-button';
+      button.innerText = 'Copy';
+      button.addEventListener('click', () => {
+        navigator.clipboard.writeText(block.innerText).then(() => {
+          button.innerText = 'Copied!';
+          setTimeout(() => {
+            button.innerText = 'Copy';
+          }, 2000);
+        });
+      });
+      block.parentElement.style.position = 'relative';
+      block.parentElement.appendChild(button);
+    }
+
+    // Fetch the Markdown content when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      fetchMarkdown('jsConcepts.md'); // Replace with the path to your Markdown file
+    });
+  </script>
+</body>
+</html>
