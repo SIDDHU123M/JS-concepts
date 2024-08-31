@@ -1,6 +1,42 @@
 ### JavaScript Concepts
 
-#### Setter & Getter
+- [Setter & Getter](#setter-and-getter)
+- [Destructuring](#destructuring)
+- [Rest Operator](#rest-operator)
+- [Spread Operator](#spread-operator)
+- [setInterval](#setinterval)
+- [Break, Continue, Return](#break-continue-return)
+- [Object Methods](#object-methods)
+- [Factory Function](#factory-function)
+- [Object Destructuring](#object-destructuring)
+- [Export & Export Default](#export--export-default)
+- [Defer Attribute](#defer-attribute)
+- [Async Attribute](#async-attribute)
+- [Call Stack](#call-stack)
+- [Hoisting](#hoisting)
+- [Closures](#closures)
+- [Promises](#promises)
+- [Async/Await](#async-await)
+- [Event Loop](#event-loop)
+- [IIFE (Immediately Invoked Function Expression)](#iife-immediately-invoked-function-expression)
+- [this Keyword](#this-keyword)
+- [Prototypes](#prototypes)
+- [Modules](#modules)
+- [Event Delegation](#event-delegation)
+- [Debouncing](#debouncing)
+- [Throttling](#throttling)
+- [Currying](#currying)
+- [Higher-Order Functions](#higher-order-functions)
+- [Polyfills](#polyfills)
+- [Memoization](#memoization)
+- [Promises vs. Callbacks](#promises-vs-callbacks)
+- [ES6 Classes](#es6-classes)
+- [Event Loop and Message Queue](#event-loop-and-message-queue)
+- [Promises and Async/Await](#promises-and-asyncawait)
+- [Prototypal Inheritance](#prototypal-inheritance)
+- [Debouncing and Throttling](#debouncing-and-throttling)
+
+#### Setter and Getter
 Setters and getters are special methods that provide a way to access and update the properties of an object.
 
 **Example:**
